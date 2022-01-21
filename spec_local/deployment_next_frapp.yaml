@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: next-frapp
-          image: krpdkr/slot_next_frapp
+          image: YOUR_REGISTRY_NAME/slot_next_frapp
           ports:
             - containerPort: 80
           env:

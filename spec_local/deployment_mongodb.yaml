@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: mongodb
-          image: krpdkr/slot_mongodb
+          image: YOUR_REGISTRY_NAME/slot_mongodb
           ports:
             - containerPort: 80

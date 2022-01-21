@@ -11,7 +11,7 @@ k8s_object(
     "{SUB_BASE_URL}": "$(DOMAIN)",
   },
   images = {
-      "krpdkr/slot_gateway": "//nodejs:nodejs_gateway_image"
+      "YOUR_REGISTRY_NAME/slot_gateway": "//nodejs:nodejs_gateway_image"
   } 
 )
 
@@ -22,7 +22,7 @@ k8s_object(
   cluster = "minikube",
   template = ":deployment_task.yaml",
   images = {
-      "krpdkr/slot_task": "//java/com/task:task_java_image"
+      "YOUR_REGISTRY_NAME/slot_task": "//java/com/task:task_java_image"
   },
 )
 
@@ -38,7 +38,7 @@ k8s_object(
     "{MONGODB_DB}": "$(MONGODB_DB)",
   },
   images = {
-      "krpdkr/slot_user_management": "//java/com/user/management:user_management_java_image"
+      "YOUR_REGISTRY_NAME/slot_user_management": "//java/com/user/management:user_management_java_image"
   },
 )
 
@@ -52,7 +52,7 @@ k8s_object(
     "{SUB_BASE_URL}": "$(DOMAIN)",
   },
   images = {
-      "krpdkr/slot_frapp": "//frontend/app:prod_image"
+      "YOUR_REGISTRY_NAME/slot_frapp": "//frontend/app:prod_image"
   },
 )
 
@@ -69,7 +69,7 @@ k8s_object(
     "{GOOGLE_CLIENT_SECRET}": "$(GOOGLE_CLIENT_SECRET)",
   },
   images = {
-      "krpdkr/slot_next_frapp": "//frontend/next_app:prod_image"
+      "YOUR_REGISTRY_NAME/slot_next_frapp": "//frontend/next_app:prod_image"
   },
 )
 
@@ -80,7 +80,7 @@ k8s_object(
   cluster = "minikube",
   template = ":deployment_envoy.yaml",
   images = {
-      "krpdkr/slot_envoy": "//frontend/envoy:envoy_image"
+      "YOUR_REGISTRY_NAME/slot_envoy": "//frontend/envoy:envoy_image"
   },
 )
 
@@ -91,7 +91,7 @@ k8s_object(
   cluster = "minikube",
   template = ":deployment_mongodb.yaml",
   images = {
-      "krpdkr/slot_mongodb": "//local:db_local_image"
+      "YOUR_REGISTRY_NAME/slot_mongodb": "//local:db_local_image"
   },
 )
 

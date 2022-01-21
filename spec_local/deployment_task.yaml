@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: task
-          image: krpdkr/slot_task
+          image: YOUR_REGISTRY_NAME/slot_task
           ports:
             - containerPort: 80

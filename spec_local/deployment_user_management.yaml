@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: user-management
-          image: krpdkr/slot_user_management
+          image: YOUR_REGISTRY_NAME/slot_user_management
           ports:
             - containerPort: 80
           env:

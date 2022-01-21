@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: envoy
-          image: krpdkr/slot_envoy
+          image: YOUR_REGISTRY_NAME/slot_envoy
           ports:
             - containerPort: 80
