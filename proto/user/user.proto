@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package user;
+
+option java_package = "com.user";
+option java_outer_classname = "UserProto";
+
+message UserId {
+	int32 id = 1;
+}
+
+message UserRefreshToken {
+	string data = 1;
+}
+
+message UserAccessToken {
+	string data = 1;
+}
+
+message User{
+	UserId user_id = 1;
+	string name = 2;
+	string email = 3;
+	string profile_url = 4;
+	string locale = 5;
+	oneof sso_id {
+		string google_user_id = 6;
+	}
+}

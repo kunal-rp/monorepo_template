@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: next-frapp
+  namespace: slot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: next-frapp
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+      labels:
+        app: next-frapp
+    spec:
+      containers:
+        - name: next-frapp
+          image: krpdkr/slot_next_frapp
+          ports:
+            - containerPort: 80
+          env:
+            - name: "NEXT_PUBLIC_REACT_APP_BASE_URL"
+              value: "http://{SUB_BASE_URL}"
+            - name: "NEXTAUTH_URL"
+              value: "http://{NEXTAUTH_URL}"
+            - name: "GOOGLE_CLIENT_ID"
+              value: "{GOOGLE_CLIENT_ID}"
+            - name: "GOOGLE_CLIENT_SECRET"
+              value: "{GOOGLE_CLIENT_SECRET}"

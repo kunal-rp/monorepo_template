@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package user_management;
+
+option java_package = "com.user.management";
+option java_outer_classname = "UserManagementServiceProto";
+
+import 'proto/user/user.proto';
+
+service UserManagementService {
+
+	// validate existing refresh then create new refresh/access token 
+	rpc RegenerateRefreshToken (RegenerateRefreshTokenRequest) returns (RegenerateRefreshTokenResponse);
+
+	rpc SignIn ( SignInRequest) returns (SignInResponse);
+
+}
+
+message RegenerateRefreshTokenRequest{
+
+	oneof credential { 
+		user.UserRefreshToken existing_refresh_token = 1;
+	}
+}
+
+message RegenerateRefreshTokenResponse{
+	user.UserRefreshToken refresh_token = 1;
+	user.UserAccessToken access_token = 2;
+}
+
+message SignInRequest {
+	string id_token = 1;
+
+	enum Provider { 
+		UNKNOWN = 0;
+		GOOGLE = 1;
+	}
+
+	Provider provider = 2;
+}
+
+message SignInResponse{
+	user.UserRefreshToken refresh_token = 1;
+	user.UserAccessToken access_token = 2;
+}

@@ -1,0 +1,26 @@
+{
+    "name": "nodejs",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {
+        "@bazel/bazelisk": "latest",
+        "@bazel/buildifier": "latest",
+        "@bazel/ibazel": "latest"
+    },
+    "scripts": {
+        "build": "bazel build --platforms @build_bazel_rules_nodejs//toolchains/node:linux_amd64  //...",
+        "run": "bazel run --platforms @build_bazel_rules_nodejs//toolchains/node:linux_amd64 //...",
+        "test": "bazel test //..."
+    },
+    "dependencies": {
+        "@grpc/grpc-js": "1.1.7",
+        "body-parser": "^1.19.1",
+        "cookie-parser": "^1.4.6",
+        "express": "^4.17.1",
+        "fs": "^0.0.1-security",
+        "google-protobuf": "^3.17.3",
+        "grpc-tools": "1.9.1",
+        "grpc-web": "1.2.1",
+        "ts-protoc-gen": "^0.15.0"
+    }
+}

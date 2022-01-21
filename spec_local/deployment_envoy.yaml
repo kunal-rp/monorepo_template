@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: envoy
+  namespace: slot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: envoy
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+      labels:
+        app: envoy
+    spec:
+      containers:
+        - name: envoy
+          image: krpdkr/slot_envoy
+          ports:
+            - containerPort: 80

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  namespace: slot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+      labels:
+        app: gateway
+    spec:
+      containers:
+        - name: gateway
+          image: krpdkr/slot_gateway
+          ports:
+            - containerPort: 3000
+          env:
+            - name: "REACT_APP_BASE_URL"
+              value: "http://{SUB_BASE_URL}"

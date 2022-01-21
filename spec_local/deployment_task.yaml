@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task
+  namespace: slot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+      labels:
+        app: task
+    spec:
+      containers:
+        - name: task
+          image: krpdkr/slot_task
+          ports:
+            - containerPort: 80

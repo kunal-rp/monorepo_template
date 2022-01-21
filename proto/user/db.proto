@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package db;
+
+option java_package = "com.user";
+option java_outer_classname = "UserDBProto";
+
+import 'proto/user/user.proto';
+
+// fetches all user details by field 
+message DBFetchUserRequest {
+
+	oneof identifier {
+		user.UserId user_id = 1;
+		string email = 3;
+	}
+
+	enum FetchableFields{
+		USER_FIELD_UNKNOWN = 0;
+		USER_FIELD_USER = 2;
+		USER_FIELD_REFRESH_TOKEN = 1;
+
+	}
+
+	repeated FetchableFields field = 2;
+	
+}
+
+message DBFetchUserResponse {
+
+	user.UserRefreshToken refresh_token = 1;
+	user.User user = 2;
+	
+}
+
+message UpdateRefreshTokenRequest{
+	user.UserId user_id = 1;
+	user.UserRefreshToken new_refresh_token = 2;
+}
+
+message UpdateRefreshTokenResponse{
+	user.UserRefreshToken new_refresh_token = 1;
+}
+
+message CreateUserRequest{
+	user.User user = 1;
+}
+
+message CreateUserResponse{
+	enum Error{
+		CREATION_ERROR_UNKOWN = 0;
+	}
+
+	Error error = 1;
+
+	user.UserId created_user_id = 2;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "next_app",
+  "version": "1.0.0",
+  "description": "NextJs frontend app ",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.4.5",
+    "axios": "^0.24.0",
+    "cookies": "^0.8.0",
+    "google-protobuf": "3.19.0",
+    "grpc-tools": "^1.11.2",
+    "grpc-web": "1.2.1",
+    "next": "11.1.2",
+    "next-auth": "^4.0.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "^2.2.17"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5"
+  }
+}

@@ -1,0 +1,2 @@
+build --incompatible_restrict_string_escapes=false --define=CLUSTER_CR=def_cluster --define=CLUSTER_NAME=def_cluster --define=CLUSTER_CONTEXT=def_cluster --define=CLUSTER_USER=def_cluster --define=CLUSTER_INGRESS_IP=def_cluster --define=GOOGLE_CLIENT_ID=def_google_client_id --define=GOOGLE_CLIENT_SECRET=def_google_client_secret --define=MONGODB_URI=def_mongodb_uri --define=MONGODB_DB=def_mongodb_db --define=DOMAIN=def_domain
+query --incompatible_restrict_string_escapes=false

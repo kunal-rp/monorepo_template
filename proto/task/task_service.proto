@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package task;
+
+option java_package = "com.task";
+option java_outer_classname = "TaskServiceProto";
+
+
+service TaskService {
+
+	rpc SomeAction(ActionRequest) returns (ActionResponse);
+
+}
+
+message ActionRequest {
+    string some_data = 1;
+}
+
+message ActionResponse{
+	repeated string result_data = 2;
+}

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-management
+  namespace: slot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-management
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+      labels:
+        app: user-management
+    spec:
+      containers:
+        - name: user-management
+          image: krpdkr/slot_user_management
+          ports:
+            - containerPort: 80
+          env:
+            - name: "GOOGLE_CLIENT_ID"
+              value: "{GOOGLE_CLIENT_ID}"
+            - name: "MONGODB_URI"
+              value: "{MONGODB_URI}"
+            - name: "MONGODB_DB"
+              value: "{MONGODB_DB}"

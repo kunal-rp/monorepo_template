@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frapp
+  namespace: slot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frapp
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+      labels:
+        app: frapp
+    spec:
+      containers:
+        - name: frapp
+          image: krpdkr/slot_frapp
+          ports:
+            - containerPort: 80
+          env:
+            - name: "REACT_APP_BASE_URL"
+              value: "http://{SUB_BASE_URL}"

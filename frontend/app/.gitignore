@@ -1,0 +1,6 @@
+dist/
+devDist/
+
+src/genProto/**
+
+.env
