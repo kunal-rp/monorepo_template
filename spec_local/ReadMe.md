@@ -7,3 +7,5 @@
  - this is the domain that GOOGLE SSO will redirect to
 3) run startup.sh 
 
+As a placeholder, 'slot' was used as the namespace/image name (for registries)
+
