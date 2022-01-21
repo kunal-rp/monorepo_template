@@ -30,14 +30,11 @@ export default function useAuthData(test = null){
 					if(res.data.access_token != null){
 						setAccessToken(res.data.access_token);
 					}else{
-						console.log("failed auth")
-						//setLoadingState("FAILED")
+						setLoadingState("FAILED")
 					}
 				})
 				.catch(function (error){
-					console.log(error)
-
-					//setLoadingState("FAILED")
+					setLoadingState("FAILED")
 				})
 		}
 	}, [loadingState])
